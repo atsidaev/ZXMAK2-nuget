@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>ZXMAK2.Engine.Cpu</id>
-    <title>Z80 processor emulation core</title>
+    <id>ZXMAK2.Z80Cpu</id>
+    <title>Zilog Z80 processor emulation core</title>
     <version>1.0.0</version>
     <authors>Alex Makeev, Alexander Tsidaev</authors>
     <owners>ZXMAK2 community</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Z80 processor emulation core from ZXMAK2 emulator</description>
+    <description>Zilog Z80 processor emulation core from ZXMAK2 emulator</description>
     <copyright>Copyright 2007, 2015 Alex Makeev (ZXMAK2 emulator), 2019 Alexander Tsidaev (package)</copyright>
     <releaseNotes>Initial 1.0.0 release</releaseNotes>
     <projectUrl>https://github.com/atsidaev/ZXMAK2-nuget.git</projectUrl>
