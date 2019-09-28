@@ -18,13 +18,14 @@ Install from Package Manager console
 
 This example shows how to initialize Z80Cpu class and execute a simple loop
 ```asm
-LOOP: LD A, (#0009)    ; our program is 9 bytes long (#0000...#0008) so #0009 is free to use
-      INC A            ; increment the value of memory cell
+LOOP: LD A, (#0009)    ; load counter value from RAM to A
+      INC A            ; increment the value of counter
       LD (#0009), A    ; and write it back
       JR LOOP          ; repeat forever
+CNT:  DB 0             ; counter, the variable to increment. Its address if #0009
 ```
 
-for a 100 times. It is enough to enlarge cell at #0009 to the value of 25.
+for a 100 times. It is enough to enlarge CNT cell at #0009 to the value of 25.
 
 ```C#
 using System;
