@@ -1,0 +1,55 @@
+From: Alexander Tsidaev <a.tsidaev@gmail.com>
+Date: Thu, 3 Oct 2019 09:38:53 +0500
+Subject: [PATCH] Change usings for external libraries usage
+
+---
+
+diff --git a/ZXMAK2.Dependency/ResolverUnity.cs b/ZXMAK2.Dependency/ResolverUnity.cs
+--- a/ZXMAK2.Dependency/ResolverUnity.cs
++++ b/ZXMAK2.Dependency/ResolverUnity.cs
+@@ -1,7 +1,9 @@
+ ﻿using System;
+ using System.Linq;
+-using Microsoft.Practices.Unity;
++
+ using Microsoft.Practices.Unity.Configuration;
++using Unity;
++using Unity.Resolution;
+ 
+ 
+ namespace ZXMAK2.Dependency
+diff --git a/ZXMAK2.Engine/Serializers/SerializeManager.cs b/ZXMAK2.Engine/Serializers/SerializeManager.cs
+--- a/ZXMAK2.Engine/Serializers/SerializeManager.cs
++++ b/ZXMAK2.Engine/Serializers/SerializeManager.cs
+@@ -5,7 +5,7 @@ using ZXMAK2.Dependency;
+ using ZXMAK2.Host.Interfaces;
+ using ZXMAK2.Engine.Interfaces;
+ 
+-
++using ZipLib = ICSharpCode.SharpZipLib;
+ 
+ namespace ZXMAK2.Serializers
+ {
+diff --git a/ZXMAK2.Engine/Serializers/SnapshotSerializers/SzxSerializer.cs b/ZXMAK2.Engine/Serializers/SnapshotSerializers/SzxSerializer.cs
+--- a/ZXMAK2.Engine/Serializers/SnapshotSerializers/SzxSerializer.cs
++++ b/ZXMAK2.Engine/Serializers/SnapshotSerializers/SzxSerializer.cs
+@@ -7,6 +7,7 @@ using ZXMAK2.Engine.Interfaces;
+ using ZXMAK2.Engine.Entities;
+ using ZXMAK2.Engine.Tools;
+ 
++using ZipLib = ICSharpCode.SharpZipLib;
+ 
+ namespace ZXMAK2.Serializers.SnapshotSerializers
+ {
+diff --git a/ZXMAK2.Engine/Serializers/TapeSerializers/CswSerializer.cs b/ZXMAK2.Engine/Serializers/TapeSerializers/CswSerializer.cs
+--- a/ZXMAK2.Engine/Serializers/TapeSerializers/CswSerializer.cs
++++ b/ZXMAK2.Engine/Serializers/TapeSerializers/CswSerializer.cs
+@@ -9,6 +9,7 @@ using ZXMAK2.Model.Tape.Interfaces;
+ using ZXMAK2.Model.Tape.Entities;
+ using ZXMAK2.Engine.Interfaces;
+ 
++using ZipLib = ICSharpCode.SharpZipLib;
+ 
+ namespace ZXMAK2.Serializers.TapeSerializers
+ {
+-- 

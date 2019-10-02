@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>2.9.3.8</Version>
+    <AssemblyVersion>2.9.3.8</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.3" />
+    <PackageReference Include="SharpZipLib" Version="1.2.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.6.0" />
+    <PackageReference Include="Unity" Version="5.11.1" />
+    <PackageReference Include="Unity.Configuration" Version="5.11.1" />
+    <PackageReference Include="ZXMAK2.Z80Cpu" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
