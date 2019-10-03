@@ -66,6 +66,10 @@ class Program
 
 This is a base framework for ZX Spectrum emulation, which includes basic interfaces, file format support and some glue. It may be used to write converters easily. For example, this is how conversion between .TRD and .SCL is performed:
 
+```
+PM> Install-Package ZXMAK2.Engine
+```
+
 ```C#
 var disk = new ZXMAK2.Model.Disk.DiskImage();
 var trd = new SclSerializer(disk);
