@@ -3,7 +3,7 @@
   <metadata>
     <id>ZXMAK2.Z80Cpu</id>
     <title>Zilog Z80 processor emulation core</title>
-    <version>1.0.0</version>
+    <version>$VERSION</version>
     <authors>Alex Makeev, Alexander Tsidaev</authors>
     <owners>ZXMAK2 community</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

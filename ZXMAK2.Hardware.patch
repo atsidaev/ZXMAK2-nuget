@@ -1,0 +1,51 @@
+From: Alexander Tsidaev <a.tsidaev@gmail.com>
+Date: Mon, 6 Jan 2020 01:11:47 +0500
+Subject: [PATCH 1/1] Fix usings in ZXMAK2.Hardware
+
+---
+ ZXMAK2.Hardware/General/CmosGluck.cs | 1 +
+ ZXMAK2.Hardware/General/IdeSmuc.cs   | 2 ++
+ ZXMAK2.Hardware/RomPack.cs           | 2 ++
+ 3 files changed, 5 insertions(+)
+
+diff --git a/ZXMAK2.Hardware/General/CmosGluck.cs b/ZXMAK2.Hardware/General/CmosGluck.cs
+index fefabf8..13b1c3d 100644
+--- a/ZXMAK2.Hardware/General/CmosGluck.cs
++++ b/ZXMAK2.Hardware/General/CmosGluck.cs
+@@ -6,6 +6,7 @@ using ZXMAK2.Engine;
+ using ZXMAK2.Engine.Interfaces;
+ using ZXMAK2.Engine.Entities;
+ 
++using Utils = ZXMAK2.Engine.Utils;
+ 
+ namespace ZXMAK2.Hardware.General
+ {
+diff --git a/ZXMAK2.Hardware/General/IdeSmuc.cs b/ZXMAK2.Hardware/General/IdeSmuc.cs
+index 0f06292..a831333 100644
+--- a/ZXMAK2.Hardware/General/IdeSmuc.cs
++++ b/ZXMAK2.Hardware/General/IdeSmuc.cs
+@@ -12,6 +12,8 @@ using ZXMAK2.Resources;
+ using ZXMAK2.Dependency;
+ using ZXMAK2.Host.Interfaces;
+ 
++using Utils = ZXMAK2.Engine.Utils;
++
+ namespace ZXMAK2.Hardware.General
+ {
+     /// <summary>
+diff --git a/ZXMAK2.Hardware/RomPack.cs b/ZXMAK2.Hardware/RomPack.cs
+index ef28a0e..52bdab2 100644
+--- a/ZXMAK2.Hardware/RomPack.cs
++++ b/ZXMAK2.Hardware/RomPack.cs
+@@ -7,6 +7,8 @@ using ZXMAK2.Engine;
+ using ZXMAK2.Host.Interfaces;
+ using ZXMAK2.Dependency;
+ 
++using ZipLib = ICSharpCode.SharpZipLib;
++
+ namespace ZXMAK2.Hardware
+ {
+     public class RomPack
+-- 
+2.21.0.windows.1
+
