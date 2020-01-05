@@ -8,6 +8,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Version>$VERSION</Version>
     <AssemblyVersion>$VERSION</AssemblyVersion>
+    <RootNamespace />
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +18,22 @@
     <PackageReference Include="Unity" Version="5.11.1" />
     <PackageReference Include="Unity.Configuration" Version="5.11.1" />
     <PackageReference Include="ZXMAK2.Z80Cpu" Version="$VERSION" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ZXMAK2.Resources\ResourceImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceImages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ZXMAK2.Resources\ResourceImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImages.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ZXMAK2.Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
