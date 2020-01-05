@@ -7,13 +7,14 @@
     <authors>Alex Makeev, ZXMAK2 community, Alexander Tsidaev</authors>
     <owners>ZXMAK2 community</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>ZX Spectrum emulation engine from ZXMAK2 emulator</description>
+    <description>Various ZX Spectrum hardware emulation from ZXMAK2 emulator</description>
     <copyright>Copyright 2007, 2015 Alex Makeev (ZXMAK2 emulator), 2020 Alexander Tsidaev (package)</copyright>
     <releaseNotes>Generated from 2.9.3.8 ZXMAK2 emulator sources</releaseNotes>
     <projectUrl>https://github.com/atsidaev/ZXMAK2-nuget.git</projectUrl>
     <license type="expression">GPL-3.0-or-later</license>
     <dependencies>
-      <dependency id="ZXMAK2.Z80Cpu" version="1.0.0" />
+      <dependency id="ZXMAK2.Z80Cpu" version="$VERSION" />
+      <dependency id="ZXMAK2.Engine" version="$VERSION" />
     </dependencies>
   </metadata>
   <files>
