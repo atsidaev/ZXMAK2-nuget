@@ -1,7 +1,13 @@
 #!/bin/bash
-VERSION=1.0.0.2938
-REPO_URL=https://github.com/ZXMAK/ZXMAK2
+VERSION=1.0.2.2938
+REPO_URL=https://github.com/atsidaev/ZXMAK2
 BUILD_DIR=.build
+
+CONFIG=Release
+
+# Fix for stupid msbuild (https://github.com/microsoft/msbuild/issues/2532)
+MSBuildSDKsPath='C:\Program Files\dotnet\sdk\2.2.103\Sdks'
+export MSBuildSDKsPath
 
 NUGET_LOCAL=$PWD/.nuget
 [ -d $NUGET_LOCAL ] || mkdir $NUGET_LOCAL
@@ -28,7 +34,7 @@ cp_with_version()
 }
 
 if [ ! -d $BUILD_DIR ]; then
-	git clone $REPO_URL $BUILD_DIR
+	git clone $REPO_URL $BUILD_DIR -b feature/exclude_lowlevel_filesystem_access_from_core
 else
 	(cd $BUILD_DIR; git checkout -f; git clean -dfx; git pull origin)
 fi
@@ -40,8 +46,9 @@ rm $BUILD_DIR/src/ZXVM.sln
 prepare_directory $CPU_DIR
 cp_with_version $CPU.csproj $CPU_DIR
 cp_with_version $CPU.nuspec $CPU_DIR
- 
-(cd $CPU_DIR; dotnet build . -c Release; nuget pack $CPU.nuspec) || true
+
+# Use msbuild to build all targets including v3.5, which is impossible for v3.5
+(cd $CPU_DIR; dotnet restore; msbuild.exe -p:Configuration=$CONFIG; nuget pack $CPU.nuspec) || true
 
 ## Collect artifacts
 find $CPU_DIR -name '*.nupkg' -exec mv {} $NUGET_LOCAL \;
@@ -71,7 +78,8 @@ done
 ## Apply patch for "using" directives
 (cd $ENGINE_BUILD_DIR; patch -p1 -i ../../$ENGINE.patch)
 
-(cd $ENGINE_BUILD_DIR; dotnet restore -s $NUGET_LOCAL; dotnet build . -c Release; nuget pack $ENGINE.nuspec)
+# Use msbuild instead of dotnet build because stupid .NET Core cannot compile Bitmaps into resource file
+(cd $ENGINE_BUILD_DIR; dotnet restore -s $NUGET_LOCAL; msbuild.exe -p:Configuration=$CONFIG ZXMAK2.Engine.csproj; nuget pack $ENGINE.nuspec)
 
 ## Collect artifacts
 find $ENGINE_BUILD_DIR -name '*.nupkg' -exec mv {} $NUGET_LOCAL \;
@@ -98,7 +106,7 @@ done
 ## Apply patch for "using" directives
 (cd $HARDWARE_BUILD_DIR; patch -p1 -i ../../$HARDWARE.patch)
 
-(cd $HARDWARE_BUILD_DIR; dotnet restore -s $NUGET_LOCAL; dotnet build . -c Release; nuget pack $HARDWARE.nuspec)
+(cd $HARDWARE_BUILD_DIR; dotnet restore -s $NUGET_LOCAL; dotnet build . -c $CONFIG; nuget pack $HARDWARE.nuspec)
 
 ## Collect artifacts
 find $HARDWARE_BUILD_DIR -name '*.nupkg' -exec mv {} $NUGET_LOCAL \;

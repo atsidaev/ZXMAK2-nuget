@@ -15,6 +15,10 @@
     <dependencies>
       <dependency id="ZXMAK2.Z80Cpu" version="$VERSION" />
       <dependency id="ZXMAK2.Engine" version="$VERSION" />
+      <dependency id="log4net" version="2.0.3" />
+      <dependency id="SharpZipLib" version="1.2.0" />
+      <dependency id="System.Drawing.Common" version="4.6.0" />
+      <dependency id="Unity" version="5.11.1" />
     </dependencies>
   </metadata>
   <files>

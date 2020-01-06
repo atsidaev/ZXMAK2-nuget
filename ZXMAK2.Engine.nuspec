@@ -14,6 +14,11 @@
     <license type="expression">GPL-3.0-or-later</license>
     <dependencies>
       <dependency id="ZXMAK2.Z80Cpu" version="1.0.0" />
+      <dependency id="log4net" version="2.0.3" />
+      <dependency id="SharpZipLib" version="1.2.0" />
+      <dependency id="System.Drawing.Common" version="4.6.0" />
+      <dependency id="Unity" version="5.11.1" />
+      <dependency id="Unity.Configuration" version="5.11.1" /> 
     </dependencies>
   </metadata>
   <files>
